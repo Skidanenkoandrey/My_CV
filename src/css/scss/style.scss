@@ -1,0 +1,39 @@
+@import "mixinMediaFonts";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  a {
+    text-decoration: none;
+    color: $color;
+  }
+}
+
+body {
+  display: flex;
+  background: #2e2e2e;
+  color: #fff;
+  font-family: "STARWARS", sans-serif;
+}
+
+//@font-face {
+//  font-family: "STARWARS";
+//  src: url('./src/assets/fonts/STARWARS.ttf') format("truetype");
+//  font-weight: normal;
+//  font-style: normal;
+//}
+
+.wrapper {
+  display: flex;
+  margin: auto;
+  background: #2e2e2e;
+  width: 400px;
+  height: 300px;
+}
+
+
