@@ -3,10 +3,10 @@ $color: #ffc107;
 $mod_1: 1.2; // mobile
 $mod_2: 1.5; // desktop
 
-$min_width: 20rem;// mobile
-$max_width: 64rem;// desktop
-$min_font: 0.8rem;// mobile
-$max_font: 1.1rem;// desktop
+$min_width: 20rem; // mobile
+$max_width: 64rem; // desktop
+$min_font: 0.8rem; // mobile
+$max_font: 1.1rem; // desktop
 
 @function strip-unit($value) {
   @return $value / ($value * 0 + 1);
@@ -22,7 +22,7 @@ $max_font: 1.1rem;// desktop
     & {
       font-size: $min-font-size;
       @media screen and (min-width: $min-vw) {
-        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        font-size: calc(((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}) * #{strip-unit($max-font-size - $min-font-size)} + #{$min-font-size});
       }
       @media screen and (min-width: $max-vw) {
         font-size: $max-font-size;
@@ -35,10 +35,12 @@ h1 {
   font-size: $mod_1*$mod_1*$mod_1*$mod_1*$mod_1 *1rem;
   @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2*$mod_2 *$min_font);
 }
+
 h2 {
   font-size: $mod_1*$mod_1*$mod_1 *1rem;
   @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
 }
+
 h3 {
   font-size: $mod_1*$mod_1 *1rem;
   @include fluid-type($min_width, $max_width, $mod_1*$mod_1 *$min_font, $mod_2*$mod_2 *$min_font);
