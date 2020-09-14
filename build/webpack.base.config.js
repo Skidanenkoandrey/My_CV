@@ -27,6 +27,12 @@ module.exports = {
             loader: 'babel-loader',
             exclude: '/node_modules/',
         }, {
+            test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]'
+            }
+        }, {
             test: /\.(png|jpg|gif|svg)$/,
             loader: 'file-loader',
             options: {
@@ -42,7 +48,7 @@ module.exports = {
                     options: {sourceMap: true}
                 }, {
                     loader: 'postcss-loader',
-                    options: {sourceMap: true, config: {path: 'src/js/postcss.config.js'}}
+                    options: {sourceMap: true, config: {path: `${PATHS.src}/js/postcss.config.js`}}
                 }
             ]
         }, {
@@ -55,7 +61,15 @@ module.exports = {
                     options: {sourceMap: true}
                 }, {
                     loader: 'postcss-loader',
-                    options: {sourceMap: true, config: {path: 'src/js/postcss.config.js'}}
+                    options: {sourceMap: true, config: {path: `${PATHS.src}/js/postcss.config.js`}}
+                }, {
+                    loader: 'resolve-url-loader',
+                    // options: {
+                    //     engine: 'postcss',
+                    //     sourceMap: true,
+                    //     debug: true,
+                    //     join: ''
+                    // }
                 }, {
                     loader: 'sass-loader',
                     options: {sourceMap: true}
@@ -75,15 +89,14 @@ module.exports = {
         }),
         new CopyWebpackPlugin({
             patterns: [
-                // Images:
                 {
                     from: `${PATHS.src}/img`,
                     to: `${PATHS.assets}img`
                 },
-                // {
-                //     from: `${PATHS.src}/${PATHS.assets}fonts`,
-                //     to: `${PATHS.assets}fonts`
-                // },
+                {
+                    from: `${PATHS.src}/fonts`,
+                    to: `${PATHS.assets}fonts`
+                },
                 {
                     from: `${PATHS.src}/static`,
                     to: ''

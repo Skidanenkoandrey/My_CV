@@ -8,6 +8,7 @@
 
 html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
+
   a {
     text-decoration: none;
     color: $color;
@@ -18,8 +19,18 @@ body {
   display: flex;
   background: #2e2e2e;
   color: #fff;
-  font-family: "STARWARS", sans-serif;
   height: 100vh;
+  font-family: "STARWARS", sans-serif;
+}
+
+@font-face {
+  font-family: "STARWARS";
+  src: url("dist/assets/fonts/starwars/STARWARS.eot?") format("eot"),
+  url("dist/assets/fonts/starwars/STARWARS.woff") format("woff"),
+  url("dist/assets/fonts/starwars/STARWARS.ttf") format("truetype"),
+  url("dist/assets/fonts/starwars/STARWARS.svg#STARWARS") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .container {
