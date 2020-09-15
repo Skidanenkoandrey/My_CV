@@ -30,7 +30,7 @@ module.exports = {
             test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
             loader: 'file-loader',
             options: {
-                name: '[name].[ext]'
+                name: '[path][name].[ext]'
             }
         }, {
             test: /\.(png|jpg|gif|svg)$/,
