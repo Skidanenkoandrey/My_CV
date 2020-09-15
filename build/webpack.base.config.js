@@ -30,13 +30,16 @@ module.exports = {
             test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
             loader: 'file-loader',
             options: {
-                name: '[path][name].[ext]'
+                name: '[name].[ext]',
+                outputPath: `${PATHS.assets}/fonts`
             }
         }, {
             test: /\.(png|jpg|gif|svg)$/,
             loader: 'file-loader',
+            exclude: /STARWARS\.svg$/,
             options: {
-                name: '[name].[ext]'
+                name: '[name].[ext]',
+                outputPath: `${PATHS.assets}/img`
             }
         }, {
             test: /\.css$/,
@@ -64,12 +67,7 @@ module.exports = {
                     options: {sourceMap: true, config: {path: `${PATHS.src}/js/postcss.config.js`}}
                 }, {
                     loader: 'resolve-url-loader',
-                    // options: {
-                    //     engine: 'postcss',
-                    //     sourceMap: true,
-                    //     debug: true,
-                    //     join: ''
-                    // }
+                    options: {sourceMap: true}
                 }, {
                     loader: 'sass-loader',
                     options: {sourceMap: true}
