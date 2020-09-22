@@ -38,8 +38,7 @@ module.exports = {
             loader: 'file-loader',
             exclude: /STARWARS\.svg$/,
             options: {
-                name: '[name].[ext]',
-                outputPath: `${PATHS.assets}/img`
+                name: '[name].[ext]'
             }
         }, {
             test: /\.css$/,
